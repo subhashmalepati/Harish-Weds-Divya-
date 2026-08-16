@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation | Harish & Divya</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-maroon-dark: #2b040c;
+      --bg-maroon-light: #480a17;
+      --gold-primary: #d4af37;
+      --gold-light: #f9e79f;
+      --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+      --text-light: #fdfefe;
+      --card-bg: rgba(43, 4, 12, 0.75);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at center, var(--bg-maroon-light) 0%, var(--bg-maroon-dark) 100%);
+      background-attachment: fixed;
+      color: var(--text-light);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Shimmer Gold Text */
+    .gold-text {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
+    .gold-border {
+      border: 1px solid var(--gold-primary);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .sacred-mantra {
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      color: var(--gold-light);
+    }
+
+    .ganesha-icon {
+      width: 75px;
+      height: 75px;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+    }
+
+    .hero-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .couple-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      margin: 15px 0;
+      color: var(--gold-light);
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Countdown Timer */
+    .timer-container {
+      display: flex;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .timer-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--gold-primary);
+      border-radius: 8px;
+      padding: 12px 16px;
+      min-width: 70px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .timer-box span {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .timer-box label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Couple Section */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-size: 2.3rem;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .couple-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .couple-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 30px 20px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .couple-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 3px solid var(--gold-primary);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .couple-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+
+    .parent-details {
+      font-size: 0.9rem;
+      color: #e0d0d0;
+      margin-top: 10px;
+    }
+
+    /* Events Section */
+    .events-wrapper {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .event-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 35px 25px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-card i.main-icon {
+      font-size: 2.2rem;
+      color: var(--gold-primary);
+      margin-bottom: 15px;
+    }
+
+    .event-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    .event-date-time {
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 24px;
+      border-radius: 30px;
+      background: var(--gold-gradient);
+      color: #2b040c;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #170106;
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .couple-container, .events-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .couple-title {
+        font-size: 3.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="sacred-mantra" data-aos="fade-down">|| శ్రీరస్తు • శుభమస్తు • అవిఘ్నమస్తు ||</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/3209/3209930.png" alt="Ganesha" class="ganesha-icon" data-aos="zoom-in" />
+    <h2 class="hero-title gold-text" data-aos="fade-up">Wedding Invitation</h2>
+    <p data-aos="fade-up" data-aos-delay="100">We solicit your gracious presence on the auspicious occasion of the wedding of</p>
+    
+    <h1 class="couple-title" data-aos="zoom-in" data-aos-delay="200">Harish & Divya</h1>
+    <p class="gold-text" data-aos="fade-up" data-aos-delay="300">Sunday, 30th August 2026</p>
+
+    <!-- Countdown -->
+    <div class="timer-container" data-aos="fade-up" data-aos-delay="400">
+      <div class="timer-box">
+        <span id="days">00</span>
+        <label>Days</label>
+      </div>
+      <div class="timer-box">
+        <span id="hours">00</span>
+        <label>Hours</label>
+      </div>
+      <div class="timer-box">
+        <span id="minutes">00</span>
+        <label>Mins</label>
+      </div>
+      <div class="timer-box">
+        <span id="seconds">00</span>
+        <label>Secs</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Couple Section -->
+  <section style="padding: 40px 0;">
+    <h2 class="section-title gold-text" data-aos="fade-up">The Happy Couple</h2>
+    
+    <div class="couple-container">
+      <!-- Groom Card -->
+      <div class="couple-card gold-border" data-aos="fade-right">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80" alt="Groom" class="couple-img" />
+        <h3 class="gold-text">Chi. Harish Kumar</h3>
+        <p><strong>Groom</strong></p>
+        <div class="parent-details">
+          <p>Younger Son of</p>
+          <p><strong>Smt. Segu Surya Kumari</strong> &</p>
+          <p><strong>Late Sri Segu Rama Murthy</strong></p>
+        </div>
+      </div>
+
+      <!-- Bride Card -->
+      <div class="couple-card gold-border" data-aos="fade-left">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Bride" class="couple-img" />
+        <h3 class="gold-text">Chi. La. Sow. Divya Nagalakshmi</h3>
+        <p><strong>Bride</strong></p>
+        <div class="parent-details">
+          <p>Only Daughter of</p>
+          <p><strong>Sri Boggavarapu Ranga Swamy</strong> &</p>
+          <p><strong>Smt. Subhashini</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section style="padding: 40px 0;">
+    <h2 class="section-title gold-text" data-aos="fade-up">Auspicious Events</h2>
+    
+    <div class="events-wrapper">
+      <!-- Muhurtham -->
+      <div class="event-card gold-border" data-aos="zoom-in-right">
+        <i class="fa-solid fa-ring main-icon"></i>
+        <h4 class="gold-text">Sumuhurtham (Wedding)</h4>
+        <p class="event-date-time"><i class="fa-regular fa-calendar-check"></i> Sunday, 30th August 2026</p>
+        <p class="event-date-time"><i class="fa-regular fa-clock"></i> 10:55 AM (Thula Lagnam)</p>
+        <hr style="border: 0.5px solid rgba(212, 175, 55, 0.3); margin: 15px 0;">
+        <p><strong>Venkateswara Kalyana Mandapam</strong></p>
+        <p>New Cinema Hall, Boddikurapadu Center,</p>
+        <p>East Gangavaram</p>
+        <a href="https://maps.google.com/?q=Venkateswara+Kalyana+Mandapam+East+Gangavaram" target="_blank" class="btn-gold">
+          <i class="fa-solid fa-location-dot"></i> View on Google Maps
+        </a>
+      </div>
+
+      <!-- Reception -->
+      <div class="event-card gold-border" data-aos="zoom-in-left">
+        <i class="fa-solid fa-champagne-glasses main-icon"></i>
+        <h4 class="gold-text">Reception</h4>
+        <p class="event-date-time"><i class="fa-regular fa-calendar-check"></i> Monday, 31st August 2026</p>
+        <p class="event-date-time"><i class="fa-regular fa-clock"></i> From 12:00 PM Onwards</p>
+        <hr style="border: 0.5px solid rgba(212, 175, 55, 0.3); margin: 15px 0;">
+        <p><strong>Sri Vasavi Kalyana Mandapam</strong></p>
+        <p>Giddalur</p>
+        <a href="https://maps.google.com/?q=Sri+Vasavi+Kalyana+Mandapam+Giddalur" target="_blank" class="btn-gold">
+          <i class="fa-solid fa-location-dot"></i> View on Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Family Notes -->
+  <footer>
+    <h3 class="gold-text" style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">With Best Compliments</h3>
+    <p>Near & Dear</p>
+    <p style="margin-top: 15px; font-size: 0.85rem; color: var(--gold-light);">We look forward to celebrating with you!</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    // Wedding Countdown Timer
+    const weddingDate = new Date("August 30, 2026 10:55:00").getTime();
+
+    const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.querySelector(".timer-container").innerHTML = "<p class='gold-text' style='font-size:1.4rem;'>Happily Married!</p>";
+        return;
+      }
+
+      document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+    }, 1000);
+  </script>
+</body>
+</html>
+
